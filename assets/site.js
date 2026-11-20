@@ -18,15 +18,6 @@
     });
   }
 
-  // ===== SETTINGS =====
-  // Every form is emailed to `email` through FormSubmit (formsubmit.co, free, no account).
-  // If formEndpoint is emptied, forms fall back to opening the visitor's email app.
-  var CONFIG = {
-    formEndpoint: "https://formsubmit.co/ajax/info@cargochainlogistics.com",
-    email: "info@cargochainlogistics.com"
-  };
-  // ==========================================
-
   // Mobile menu
   var toggle = document.querySelector(".menu-toggle");
   var nav = document.getElementById("nav");
@@ -51,68 +42,22 @@
   // Footer year
   document.querySelectorAll("[data-year]").forEach(function (el) { el.textContent = new Date().getFullYear(); });
 
-  // Forms
+  // Native POST keeps provider CAPTCHA enabled, including without JavaScript.
   document.querySelectorAll("form[data-form]").forEach(function (form) {
-    var status = form.querySelector(".form-status");
-    function show(kind, msg) {
-      if (!status) return;
-      status.className = "form-status " + kind;
-      status.textContent = msg;
-    }
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-      if (form.dataset.sending === "true") return;
-      if (!form.reportValidity()) return;
-      var data = new FormData(form);
-      if (data.get("_gotcha")) return; // bot honeypot
-      data.delete("_gotcha");
-      var subject = "Website: " + form.getAttribute("data-form");
-      data.append("_subject", subject);
-      var btn = form.querySelector("[type=submit]");
-
-      if (!CONFIG.formEndpoint) {
-        var lines = [];
-        data.forEach(function (v, k) { if (k.charAt(0) !== "_") lines.push(k + ": " + v); });
-        window.location.href = "mailto:" + CONFIG.email + "?subject=" + encodeURIComponent(subject) +
-          "&body=" + encodeURIComponent(lines.join("\n"));
-        show("ok", "Your email app should open with your answers filled in. Just hit send.");
+    var button = form.querySelector("[type=submit]");
+    var label = button ? button.textContent : "";
+    form.addEventListener("submit", function (event) {
+      if (form.dataset.sending === "true" || form.elements._honey.value || !form.reportValidity()) {
+        event.preventDefault();
         return;
       }
-
-      // Flatten to JSON; checkbox groups become one comma-separated value.
-      var payload = {};
-      data.forEach(function (v, k) { payload[k] = payload[k] ? payload[k] + ", " + v : v; });
-      payload._template = "table";
-      payload._captcha = "false";
-      payload["Submitted from"] = location.href;
-
-      if (btn) { btn.disabled = true; btn.dataset.label = btn.textContent; btn.textContent = "Sending…"; }
       form.dataset.sending = "true";
-      form.setAttribute("aria-busy", "true");
-      var controller = new AbortController();
-      var timeout = setTimeout(function () { controller.abort(); }, 20000);
-      fetch(CONFIG.formEndpoint, {
-        signal: controller.signal,
-        method: "POST",
-        body: JSON.stringify(payload),
-        headers: { "Content-Type": "application/json", Accept: "application/json" }
-      })
-        .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
-        .then(function (res) {
-          if (!res.ok || String(res.j.success) !== "true") throw new Error(res.j.message || "failed");
-          form.reset();
-          show("ok", form.getAttribute("data-success") || "Thanks! We received it and will contact you within one business day.");
-          if (window.gtag) window.gtag("event", "generate_lead", { form: form.getAttribute("data-form") });
-        })
-        .catch(function () {
-          show("err", "Sorry, that didn't go through. Please call (513) 572-7202 or email " + CONFIG.email + ".");
-        })
-        .then(function () {
-          clearTimeout(timeout);
-          form.dataset.sending = "false";
-          form.removeAttribute("aria-busy");
-          if (btn) { btn.disabled = false; btn.textContent = btn.dataset.label; }
-        });
+      if (button) { button.disabled = true; button.textContent = "Opening security check…"; }
+      // Receipt is confirmed by the provider only after its security check.
+    });
+    window.addEventListener("pageshow", function () {
+      delete form.dataset.sending;
+      if (button) { button.disabled = false; button.textContent = label; }
     });
   });
 
