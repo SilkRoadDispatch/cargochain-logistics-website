@@ -15,9 +15,20 @@
   var toggle = document.querySelector(".menu-toggle");
   var nav = document.getElementById("nav");
   if (toggle && nav) {
+    function closeMenu() {
+      nav.classList.remove("open");
+      toggle.setAttribute("aria-expanded", "false");
+    }
     toggle.addEventListener("click", function () {
       var open = nav.classList.toggle("open");
       toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    nav.addEventListener("click", function (event) { if (event.target.closest("a")) closeMenu(); });
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && nav.classList.contains("open")) { closeMenu(); toggle.focus(); }
+    });
+    document.addEventListener("click", function (event) {
+      if (!nav.contains(event.target) && !toggle.contains(event.target)) closeMenu();
     });
   }
 
@@ -34,6 +45,7 @@
     }
     form.addEventListener("submit", function (e) {
       e.preventDefault();
+      if (form.dataset.sending === "true") return;
       if (!form.reportValidity()) return;
       var data = new FormData(form);
       if (data.get("_gotcha")) return; // bot honeypot
@@ -59,7 +71,12 @@
       payload["Submitted from"] = location.href;
 
       if (btn) { btn.disabled = true; btn.dataset.label = btn.textContent; btn.textContent = "Sending…"; }
+      form.dataset.sending = "true";
+      form.setAttribute("aria-busy", "true");
+      var controller = new AbortController();
+      var timeout = setTimeout(function () { controller.abort(); }, 20000);
       fetch(CONFIG.formEndpoint, {
+        signal: controller.signal,
         method: "POST",
         body: JSON.stringify(payload),
         headers: { "Content-Type": "application/json", Accept: "application/json" }
@@ -74,7 +91,12 @@
         .catch(function () {
           show("err", "Sorry, that didn't go through. Please call (513) 572-7202 or email " + CONFIG.email + ".");
         })
-        .then(function () { if (btn) { btn.disabled = false; btn.textContent = btn.dataset.label; } });
+        .then(function () {
+          clearTimeout(timeout);
+          form.dataset.sending = "false";
+          form.removeAttribute("aria-busy");
+          if (btn) { btn.disabled = false; btn.textContent = btn.dataset.label; }
+        });
     });
   });
 
@@ -89,25 +111,43 @@
         document.getElementById(t.getAttribute("aria-controls")).hidden = !on;
       });
     }
-    tabs.forEach(function (t) { t.addEventListener("click", function () { select(t); }); });
-    if (location.hash) {
-      var target = list.querySelector('[aria-controls="' + location.hash.slice(1) + '"]');
+    function syncHash() {
+      var target = Array.from(tabs).find(function (tab) { return "#" + tab.getAttribute("aria-controls") === location.hash; });
       if (target) select(target);
     }
+    tabs.forEach(function (t, index) {
+      t.addEventListener("click", function () {
+        select(t);
+        history.replaceState(null, "", "#" + t.getAttribute("aria-controls"));
+      });
+      t.addEventListener("keydown", function (event) {
+        var next;
+        if (event.key === "ArrowRight") next = (index + 1) % tabs.length;
+        if (event.key === "ArrowLeft") next = (index + tabs.length - 1) % tabs.length;
+        if (event.key === "Home") next = 0;
+        if (event.key === "End") next = tabs.length - 1;
+        if (next !== undefined) { event.preventDefault(); tabs[next].click(); tabs[next].focus(); }
+      });
+    });
+    window.addEventListener("hashchange", syncHash);
+    syncHash();
   });
 
   // Owner-operator earnings calculator
   var calc = document.getElementById("calc");
   if (calc) {
     var fmt = function (n) { return (n < 0 ? "-$" : "$") + Math.abs(Math.round(n)).toLocaleString("en-US"); };
-    var val = function (id) { return parseFloat(document.getElementById(id).value) || 0; };
+    var val = function (id) {
+      var number = Number(document.getElementById(id).value);
+      return Number.isFinite(number) ? Math.max(0, number) : 0;
+    };
     var run = function () {
       var miles = val("c-miles"), rpm = val("c-rpm"), ins = val("c-ins"), fact = val("c-fact") / 100;
-      var mpg = val("c-mpg") || 1, fuel = val("c-fuel"), fixed = val("c-fixed");
+      var mpg = Math.max(1, val("c-mpg")), fuel = val("c-fuel"), fixed = val("c-fixed");
       var gross = miles * rpm;
       var fee = gross * 0.12;
       var factCost = gross * fact;
-      var fuelCost = (miles / mpg) * fuel;
+      var fuelCost = ((miles + val("c-empty")) / mpg) * fuel;
       var net = gross - fee - factCost - ins - fuelCost - fixed;
       document.getElementById("o-gross").textContent = fmt(gross);
       document.getElementById("o-fee").textContent = "-" + fmt(fee);

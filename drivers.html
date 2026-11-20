@@ -14,8 +14,9 @@
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/styles.css">
+<link rel="stylesheet" href="assets/refresh.css">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -27,7 +28,7 @@
 
 <header class="site-header"><div class="wrap">
   <a class="brand" href="index.html"><img src="assets/logo-word.png" width="708" height="163" alt="CargoChain Logistics"></a>
-  <button class="menu-toggle" aria-controls="nav" aria-expanded="false">Menu</button>
+  <button type="button" class="menu-toggle" aria-controls="nav" aria-expanded="false">Menu</button>
   <nav id="nav" class="nav" aria-label="Main">
     <a href="owner-operators.html">Owner-Operators</a>
     <a href="drivers.html" aria-current="page">Drivers</a>
@@ -117,6 +118,7 @@
       <ul class="checks"><li>No CDL required on most trucks</li><li>Weekly pay</li><li>Real dispatch support</li></ul>
     </div>
     <form class="form-card" data-form="Driver application" data-success="Thanks! We'll call you within one business day.">
+      <p class="form-privacy">Your details are used to respond to this request. Please don’t include sensitive identification or payment information.</p><noscript><p>To send your request, please call <a href="tel:+15135727202">(513) 572-7202</a> or email <a href="mailto:info@cargochainlogistics.com">info@cargochainlogistics.com</a>.</p></noscript>
       <div class="form-grid">
         <div class="field"><label for="d-name">Full name</label><input id="d-name" name="name" autocomplete="name" required></div>
         <div class="field"><label for="d-phone">Phone</label><input id="d-phone" name="phone" type="tel" autocomplete="tel" required></div>
@@ -146,6 +148,7 @@
   </div>
 </section>
 
+<section class="tech-callout"><div class="wrap"><span class="eyebrow">Supported by FleetOptimus TMS</span><h2>Modern tools behind your miles.</h2><p>Our team uses FleetOptimus TMS to support load coordination and keep fleet and driver records organized. You have real people behind you and modern tools behind them.</p><a class="text-link" href="about.html#technology">Learn about our operations</a></div></section>
 </main>
 
 <footer class="site-footer"><div class="wrap">

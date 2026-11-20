@@ -21,7 +21,15 @@ activation email from FormSubmit, and its "Activate Form" link must be clicked o
 ## Editing
 - Text: edit the `.html` files directly. Header and footer are repeated in every page.
 - Colors and fonts: the `:root` variables at the top of `assets/styles.css`.
+- Refreshed design: `assets/refresh.css` supplies the shared visual system and responsive homepage layouts.
+- FleetOptimus: technology sections describe the TMS used by CargoChain for operational coordination. These are informational sections, not a live customer portal.
 - Logo: `assets/logo-word.png` (header), `assets/logo-full.png`, `assets/logo-mark.png`, favicons.
+
+## Verification and launch
+- Check desktop and mobile navigation, all audience links, broker tab keyboard navigation and direct links.
+- The earnings estimate includes fuel for both loaded and empty miles. Default values are illustrative, before tax, and are not a pay guarantee.
+- Form handling includes duplicate-submit protection, a 20-second request timeout, and preserved inputs on failure. The existing FormSubmit inbox still requires activation; confirm receipt of a real test request before launch.
+- Current fleet size, insurance limits, recruiting terms, and service availability should be kept up to date by the business.
 
 ## Custom domain
 Add a `CNAME` file containing the domain, set it under repo **Settings → Pages**, and point DNS

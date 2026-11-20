@@ -14,8 +14,9 @@
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/styles.css">
+<link rel="stylesheet" href="assets/refresh.css">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -27,7 +28,7 @@
 
 <header class="site-header"><div class="wrap">
   <a class="brand" href="index.html"><img src="assets/logo-word.png" width="708" height="163" alt="CargoChain Logistics"></a>
-  <button class="menu-toggle" aria-controls="nav" aria-expanded="false">Menu</button>
+  <button type="button" class="menu-toggle" aria-controls="nav" aria-expanded="false">Menu</button>
   <nav id="nav" class="nav" aria-label="Main">
     <a href="owner-operators.html" aria-current="page">Owner-Operators</a>
     <a href="drivers.html">Drivers</a>
@@ -123,6 +124,7 @@
       <div class="calc-grid">
         <div class="calc-inputs">
           <div class="field"><label for="c-miles">Loaded miles per week</label><input id="c-miles" type="number" min="0" step="50" value="2500"></div>
+          <div class="field"><label for="c-empty">Empty / deadhead miles per week</label><input id="c-empty" type="number" min="0" step="25" value="250"></div>
           <div class="field"><label for="c-rpm">Average rate per mile ($)</label><input id="c-rpm" type="number" min="0" step="0.05" value="2.10"></div>
           <div class="field"><label for="c-ins">Insurance per week ($), based on your premium</label><input id="c-ins" type="number" min="0" step="10" value="410"></div>
           <div class="field"><label for="c-fact">Same-day pay (factoring 2.5%)?</label><select id="c-fact"><option value="0">No, weekly statement</option><option value="2.5">Yes, same-day pay (2.5%)</option></select></div>
@@ -139,7 +141,7 @@
           <div class="row"><span>Other costs</span><b id="o-fixed">$0</b></div>
           <div class="big"><span>Estimated weekly take-home (before tax)</span><b id="o-net">$0</b></div>
           <div class="row" style="border:0"><span>Per year (48 working weeks)</span><b id="o-year">$0</b></div>
-          <p class="calc-note">Default values are examples only. Ask us for real rate history on the lanes you want to run.</p>
+          <p class="calc-note">Fuel includes loaded and empty miles. Default values are examples only. Ask us for real rate history on the lanes you want to run.</p>
           <a class="btn" href="#apply">Talk to us about these numbers</a>
         </div>
       </div>
@@ -208,6 +210,7 @@
       </ul>
     </div>
     <form class="form-card" data-form="Owner-operator application" data-success="Application received! We'll call you within one business day.">
+      <p class="form-privacy">Your details are used to respond to this request. Please don’t include sensitive identification or payment information.</p><noscript><p>To send your request, please call <a href="tel:+15135727202">(513) 572-7202</a> or email <a href="mailto:info@cargochainlogistics.com">info@cargochainlogistics.com</a>.</p></noscript>
       <div class="form-grid">
         <div class="field"><label for="oo-name">Full name</label><input id="oo-name" name="name" autocomplete="name" required></div>
         <div class="field"><label for="oo-phone">Phone</label><input id="oo-phone" name="phone" type="tel" autocomplete="tel" required></div>
@@ -234,6 +237,7 @@
   </div>
 </section>
 
+<section class="tech-callout"><div class="wrap"><span class="eyebrow">Supported by FleetOptimus TMS</span><h2>Your back office, connected.</h2><p>We use FleetOptimus TMS to help organize dispatch, fleet records, invoices, and settlements, supporting the team behind your truck.</p><a class="text-link" href="about.html#technology">Learn about our operations</a></div></section>
 </main>
 
 <footer class="site-footer"><div class="wrap">

@@ -13,8 +13,9 @@
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/styles.css">
+<link rel="stylesheet" href="assets/refresh.css">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -26,7 +27,7 @@
 
 <header class="site-header"><div class="wrap">
   <a class="brand" href="index.html"><img src="assets/logo-word.png" width="708" height="163" alt="CargoChain Logistics"></a>
-  <button class="menu-toggle" aria-controls="nav" aria-expanded="false">Menu</button>
+  <button type="button" class="menu-toggle" aria-controls="nav" aria-expanded="false">Menu</button>
   <nav id="nav" class="nav" aria-label="Main">
     <a href="owner-operators.html">Owner-Operators</a>
     <a href="drivers.html">Drivers</a>
@@ -77,7 +78,7 @@
   </div>
 </section>
 
-<section class="section-alt" id="contact">
+<section class="technology-section" id="technology"><div class="wrap split"><div><span class="eyebrow">People-led. Technology-supported.</span><h2>A modern operation.<br>Powered by FleetOptimus.</h2><p class="section-lead">CargoChain uses FleetOptimus, our modern transportation management system (TMS), to support efficient day-to-day operations.</p><p>From coordinating dispatch and loads to organizing fleet records, invoices, and settlements, our team uses connected software to keep the details together and the operation moving.</p><p>Based in West Chester, Ohio, our team combines box truck expertise with digital tools for dispatch, fleet administration, and back-office work.</p></div><div class="tms-panel"><div class="tms-brand"><span class="tms-logo" aria-hidden="true">F</span><div><strong>FleetOptimus</strong><span>Transportation management system</span></div></div><div class="tms-functions"><div><b>Dispatch &amp; loads</b><span>Coordinate the work ahead</span></div><div><b>Fleet &amp; drivers</b><span>Keep operational records organized</span></div><div><b>Invoices &amp; settlements</b><span>Connect the back-office details</span></div></div><p>Modern tools. A real team on the other end of the phone.</p></div></div></section><section class="section-alt" id="contact">
   <div class="wrap split top">
     <div>
       <span class="eyebrow" style="color:var(--signal-dark)">Contact</span>
@@ -94,6 +95,7 @@
       </div>
     </div>
     <form class="form-card" data-form="General contact" data-success="Thanks! We'll get back to you within one business day.">
+      <p class="form-privacy">Your details are used to respond to this request. Please don’t include sensitive identification or payment information.</p><noscript><p>To send your request, please call <a href="tel:+15135727202">(513) 572-7202</a> or email <a href="mailto:info@cargochainlogistics.com">info@cargochainlogistics.com</a>.</p></noscript>
       <div class="form-grid">
         <div class="field"><label for="g-name">Name</label><input id="g-name" name="name" autocomplete="name" required></div>
         <div class="field"><label for="g-email">Email</label><input id="g-email" name="email" type="email" autocomplete="email" required></div>
