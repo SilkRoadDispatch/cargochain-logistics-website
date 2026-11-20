@@ -9,13 +9,16 @@
 <meta property="og:title" content="Broker Partners &amp; Carrier Packet | CargoChain Logistics">
 <meta property="og:description" content="Box truck capacity that answers the phone. Set us up in minutes and get our daily truck list.">
 <meta property="og:url" content="https://cargochainlogistics.com/brokers.html">
-<meta name="theme-color" content="#15171b">
+<meta name="theme-color" content="#ffffff">
 <link rel="icon" href="assets/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/styles.css">
+<link rel="stylesheet" href="assets/refresh.css">
+<link rel="stylesheet" href="assets/light.css">
+<noscript><style>.tabpanel[hidden]{display:block!important}.tablist{display:none}</style></noscript>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -27,7 +30,7 @@
 
 <header class="site-header"><div class="wrap">
   <a class="brand" href="index.html"><img src="assets/logo-word.png" width="708" height="163" alt="CargoChain Logistics"></a>
-  <button class="menu-toggle" aria-controls="nav" aria-expanded="false">Menu</button>
+  <button type="button" class="menu-toggle" aria-controls="nav" aria-expanded="false">Menu</button>
   <nav id="nav" class="nav" aria-label="Main">
     <a href="owner-operators.html">Owner-Operators</a>
     <a href="drivers.html">Drivers</a>
@@ -113,7 +116,11 @@
       <button class="tab" role="tab" id="t-packet" aria-controls="packet-request" aria-selected="false" tabindex="-1">Request packet</button>
     </div>
 
-    <form class="form-card tabpanel" id="truck-list" role="tabpanel" aria-labelledby="t-list" data-form="Broker truck list signup" data-success="You're on the list! Our truck list arrives every morning.">
+    <form class="form-card tabpanel" id="truck-list" role="tabpanel" aria-labelledby="t-list" data-form="Broker truck list signup" action="https://formsubmit.co/info@cargochainlogistics.com" method="POST">
+<input type="hidden" name="_subject" value="CargoChain website: Broker truck list signup">
+<input type="hidden" name="_template" value="table">
+<input type="hidden" name="_url" value="https://cargochainlogistics.com/brokers.html">
+      <p class="form-privacy">Your details are used to respond to this request. Please don’t include sensitive identification or payment information.</p><p class="form-security">After submitting, complete the security check on FormSubmit to send your request to info@cargochainlogistics.com.</p>
       <p>Every morning we send where our box trucks will be empty and when. Reply to book.</p>
       <div class="form-grid">
         <div class="field"><label for="l-company">Brokerage</label><input id="l-company" name="brokerage" required></div>
@@ -123,12 +130,16 @@
         <div class="field"><label for="l-phone">Phone <span class="opt">(optional)</span></label><input id="l-phone" name="phone" type="tel" autocomplete="tel"></div>
         <div class="field"><label for="l-lanes">Lanes / regions you cover</label><input id="l-lanes" name="lanes" placeholder="e.g. TX → GA, all of Midwest"></div>
       </div>
-      <input class="hp" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input class="hp" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
       <div class="form-foot"><small>One email per business day. Unsubscribe any time.</small><button class="btn" type="submit">Join the truck list</button></div>
       <div class="form-status" role="status"></div>
     </form>
 
-    <form class="form-card tabpanel" id="tender" role="tabpanel" aria-labelledby="t-tender" data-form="Broker load tender" data-success="Load received. Dispatch will reply with a rate and availability shortly." hidden>
+    <form class="form-card tabpanel" id="tender" role="tabpanel" aria-labelledby="t-tender" data-form="Broker load tender" hidden action="https://formsubmit.co/info@cargochainlogistics.com" method="POST">
+<input type="hidden" name="_subject" value="CargoChain website: Broker load tender">
+<input type="hidden" name="_template" value="table">
+<input type="hidden" name="_url" value="https://cargochainlogistics.com/brokers.html">
+      <p class="form-privacy">Your details are used to respond to this request. Please don’t include sensitive identification or payment information.</p><p class="form-security">After submitting, complete the security check on FormSubmit to send your request to info@cargochainlogistics.com.</p>
       <p>Have box truck freight? Send it straight to our dispatch. We reply with availability and a rate.</p>
       <div class="form-grid">
         <div class="field"><label for="t-company">Brokerage</label><input id="t-company" name="brokerage" required></div>
@@ -149,12 +160,16 @@
         </div>
         <div class="field full"><label for="t-notes">Notes</label><textarea id="t-notes" name="notes"></textarea></div>
       </div>
-      <input class="hp" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input class="hp" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
       <div class="form-foot"><small>For loads that need to move today, call <a href="tel:+15135727202">(513) 572-7202</a>.</small><button class="btn" type="submit">Send load</button></div>
       <div class="form-status" role="status"></div>
     </form>
 
-    <form class="form-card tabpanel" id="packet-request" role="tabpanel" aria-labelledby="t-packet" data-form="Carrier packet request" data-success="Request received. We'll send our packet, W-9 and COI shortly." hidden>
+    <form class="form-card tabpanel" id="packet-request" role="tabpanel" aria-labelledby="t-packet" data-form="Carrier packet request" hidden action="https://formsubmit.co/info@cargochainlogistics.com" method="POST">
+<input type="hidden" name="_subject" value="CargoChain website: Carrier packet request">
+<input type="hidden" name="_template" value="table">
+<input type="hidden" name="_url" value="https://cargochainlogistics.com/brokers.html">
+      <p class="form-privacy">Your details are used to respond to this request. Please don’t include sensitive identification or payment information.</p><p class="form-security">After submitting, complete the security check on FormSubmit to send your request to info@cargochainlogistics.com.</p>
       <p>Need our signed packet, W-9 or a certificate of insurance naming you as certificate holder? Tell us where to send it.</p>
       <div class="form-grid">
         <div class="field"><label for="p-company">Brokerage</label><input id="p-company" name="brokerage" required></div>
@@ -171,13 +186,14 @@
         </div>
         <div class="field full"><label for="p-link">Your onboarding link <span class="opt">(optional)</span></label><input id="p-link" name="onboarding_link" type="url" placeholder="https://"></div>
       </div>
-      <input class="hp" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input class="hp" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
       <div class="form-foot"><small>Documents are usually sent the same business day.</small><button class="btn" type="submit">Request documents</button></div>
       <div class="form-status" role="status"></div>
     </form>
   </div>
 </section>
 
+<section class="tech-callout"><div class="wrap"><span class="eyebrow">Supported by FleetOptimus TMS</span><h2>Technology that supports the partnership.</h2><p>FleetOptimus TMS helps our team organize loads, dispatch, and invoicing so the operational details stay connected.</p><a class="text-link" href="about.html#technology">Learn about our operations</a></div></section>
 </main>
 
 <footer class="site-footer"><div class="wrap">
