@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" role="img" aria-label="Illustration of a 26 foot straight box truck with liftgate">
+  <defs>
+    <linearGradient id="box" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#dcd7cd"/></linearGradient>
+    <linearGradient id="cab" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2b2f37"/><stop offset="1" stop-color="#15171b"/></linearGradient>
+  </defs>
+  <ellipse cx="320" cy="284" rx="300" ry="12" fill="#000" opacity=".35"/>
+  <rect x="20" y="40" width="410" height="200" rx="6" fill="url(#box)"/>
+  <rect x="20" y="40" width="410" height="12" rx="4" fill="#c9c3b7"/>
+  <rect x="20" y="190" width="410" height="16" fill="#ff8806"/>
+  <g stroke="#d6d0c4" stroke-width="2"><path d="M102 52v138M184 52v138M266 52v138M348 52v138"/></g>
+  <text x="40" y="132" font-family="Barlow Condensed, Arial Narrow, sans-serif" font-weight="800" font-size="58" letter-spacing="2"><tspan fill="#2ba2fe">CARGO</tspan><tspan fill="#ff8806">CHAIN</tspan></text>
+  <text x="43" y="168" font-family="Barlow, Arial, sans-serif" font-weight="600" font-size="18" fill="#5d6270" letter-spacing="7">LOGISTICS LLC</text>
+  <rect x="8" y="228" width="20" height="26" rx="2" fill="#2b2f37"/>
+  <rect x="20" y="240" width="560" height="14" fill="#15171b"/>
+  <path d="M438 92h86c14 0 22 6 28 16l30 52c6 10 10 18 10 30v50H438z" fill="url(#cab)"/>
+  <path d="M452 106h66c8 0 13 3 17 9l26 45h-109z" fill="#8fb3e8" opacity=".85"/>
+  <path d="M456 110h22l-6 46h-16z" fill="#fff" opacity=".25"/>
+  <rect x="452" y="176" width="34" height="5" rx="2" fill="#ff8806"/>
+  <rect x="580" y="206" width="14" height="22" rx="3" fill="#ff8806"/>
+  <rect x="574" y="232" width="24" height="22" rx="3" fill="#2b2f37"/>
+  <rect x="432" y="70" width="6" height="170" fill="#2b2f37"/>
+  <circle cx="120" cy="258" r="30" fill="#15171b"/><circle cx="120" cy="258" r="13" fill="#9aa0ab"/>
+  <circle cx="190" cy="258" r="30" fill="#15171b"/><circle cx="190" cy="258" r="13" fill="#9aa0ab"/>
+  <circle cx="520" cy="258" r="30" fill="#15171b"/><circle cx="520" cy="258" r="13" fill="#9aa0ab"/>
+</svg>
