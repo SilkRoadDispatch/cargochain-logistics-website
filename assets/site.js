@@ -2,6 +2,22 @@
 (function () {
   "use strict";
 
+  // Progressive motion: reveal once, respect reduced-motion preferences.
+  var motion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)");
+  if (motion && !motion.matches && "IntersectionObserver" in window) {
+    var revealObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("reveal-enter");
+        revealObserver.unobserve(entry.target);
+      });
+    }, { threshold: 0.08 });
+    document.querySelectorAll(".audience-card, .operations-board, .section-head, .section-heading-row, .tms-panel, .service-list article, .step").forEach(function (element, index) {
+      element.style.setProperty("--reveal-delay", (index % 3) * 70 + "ms");
+      revealObserver.observe(element);
+    });
+  }
+
   // ===== SETTINGS =====
   // Every form is emailed to `email` through FormSubmit (formsubmit.co, free, no account).
   // If formEndpoint is emptied, forms fall back to opening the visitor's email app.

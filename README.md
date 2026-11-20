@@ -22,6 +22,9 @@ activation email from FormSubmit, and its "Activate Form" link must be clicked o
 - Text: edit the `.html` files directly. Header and footer are repeated in every page.
 - Colors and fonts: the `:root` variables at the top of `assets/styles.css`.
 - Refreshed design: `assets/refresh.css` supplies the shared visual system and responsive homepage layouts.
+- Brand theme: `assets/light.css` applies the blue, orange, and white palette, Manrope/Inter typography, lighter panels, and responsive truck photography composition.
+- Motion: one-time entrance and section reveals respect `prefers-reduced-motion`; all content remains available without JavaScript.
+- Truck artwork: `assets/cargochain-truck-branded.webp` is AI-enhanced marketing imagery based on the owner's supplied truck photo and CargoChain logo. The owner requested a pristine truck, polished grille/bumper, and large box branding. It is not an unedited fleet photograph. The optimized 1536×1024 WebP is approximately 209 KB.
 - FleetOptimus: technology sections describe the TMS used by CargoChain for operational coordination. These are informational sections, not a live customer portal.
 - Logo: `assets/logo-word.png` (header), `assets/logo-full.png`, `assets/logo-mark.png`, favicons.
 
